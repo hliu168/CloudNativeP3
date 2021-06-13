@@ -20,12 +20,21 @@
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
 - SLI or Service Level Indicators are metrics that indicate whether we achieved our SLOs (Service Level Objectives).
-- In terms of monthly uptime, an SLI could be "The website and it services are available and funtioning over 99.95% of time in June".
+- In terms of monthly uptime, an SLI could be "The website and it services are available and functioning over 99.95% of time in June".
 - In terms of request response time, and SLI could be "Average response time of an HTTP request to the website takes less than 100ms to complete".
 
 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
+- Latency, or the time taken to serve a request (usually measured in ms).
+- Traffic, or the amount of stress on a system from demand (such as the number of HTTP requests/second).
+- Errors, or the number of requests that are failing (such as number of HTTP 500 responses).
+- Saturation, or the overall capacity of a service (such as the percentage of memory or CPU used).
+- Uptime, or the percentage of time the website/webservices are available and functioning.
+
+(Latency, Traffic, Errors, and Saturations are the Four Golden Signals, whose definition were taken from Nanodegree course page).
+
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
