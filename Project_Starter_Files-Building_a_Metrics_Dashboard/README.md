@@ -19,6 +19,11 @@
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
 
+- SLI or Service Level Indicators are metrics that indicate whether we achieved our SLOs (Service Level Objectives).
+- In terms of monthly uptime, an SLI could be "The website and it services are available and funtioning over 99.95% of time in June".
+- In terms of request response time, and SLI could be "Average response time of an HTTP request to the website takes less than 100ms to complete".
+
+
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
 
