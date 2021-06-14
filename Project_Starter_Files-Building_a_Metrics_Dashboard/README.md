@@ -72,9 +72,25 @@ Description:
 
 ## Creating SLIs and SLOs
 *TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name three SLIs that you would use to measure the success of this SLO.
+- Uptime of services should be >=99.9999999% 
+- HTTP status code should be 20X for 99.98% of the transactions
+- Average response time to HTTP request should be less than 100ms.
 
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
+- Service uptime for frontend, backend, and trial should be >=99.9999999%
+- Average response time to HTTP request should be less than 100ms.
+- Percentage of cpu usage should be less than 70%
+- Percentage of memory usage should be less than 70%.
+- Number of HTTP response error 500 should be less than 0.04%.
 
 ## Final Dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+
+- cpu percentage occupied
+- memory percentage occupied
+- services uptime
+- Jaeger api tracing.
+
+![Alt text](./screenshot/Memory.Usage.png?raw=true "Optional Title")
+![Alt text](./screenshot/Jaeger.UpTime.png?raw=true "Optional Title")
