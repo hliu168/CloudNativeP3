@@ -10,6 +10,21 @@ app.config['MONGO_URI'] = 'mongodb://example-mongodb-svc.default.svc.cluster.loc
 
 mongo = PyMongo(app)
 
+from jaeger_client import Config
+from flask_opentracing import FlaskTracing
+
+config = Config(
+    config={
+        'sampler':
+        {'type': 'const',
+         'param': 1},
+                        'logging': True,
+                        'reporter_batch_size': 1,},
+                        service_name="service")
+jaeger_tracer = config.initialize_tracer()
+tracing = FlaskTracing(jaeger_tracer, True, app)
+
+
 @app.route('/')
 def homepage():
     return "Hello World"
@@ -29,6 +44,24 @@ def add_star():
   new_star = star.find_one({'_id': star_id })
   output = {'name' : new_star['name'], 'distance' : new_star['distance']}
   return jsonify({'result' : output})
+
+@app.route('/healthz')
+def healthcheck():
+    response = app.response_class(
+            response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+        )
+    return response
+
+@app.route('/metrics')
+def metrics():
+    response = app.response_class(
+            response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+        )
+    return response
 
 if __name__ == "__main__":
     app.run()

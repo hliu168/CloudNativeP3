@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: trial-app
+  name: trial
+  labels: 
+    app: trial
 spec:
   replicas: 3
   selector:
@@ -16,16 +18,22 @@ spec:
       - name: trial
         image: ghcr.io/thejaysmith/trial:v1
         ports:
-        - containerPort: 8080
+        - name: trialport
+          containerPort: 8080
+          protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: trial
+  labels:
+    app: trial
 spec:
   selector:
     app: trial
   ports:
-    - port: 8082
-      targetPort: 8080
+    - name: trial
+      protocol: TCP
+      port: 8082
+      targetPort: trialport
   type: LoadBalancer
