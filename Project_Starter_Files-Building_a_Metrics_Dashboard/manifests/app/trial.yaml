@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: trial
-        image: ghcr.io/thejaysmith/trial:v1
+        image: zaomai/trial
+        imagePullPolicy: Always
         ports:
         - name: trialport
           containerPort: 8080

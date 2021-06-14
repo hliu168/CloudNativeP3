@@ -2,7 +2,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: frontend-servicemonitor
+  name: frontend
   # Change this to the namespace the Prometheus instance is running in
   # namespace: default
   namespace: monitoring
@@ -12,7 +12,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.selector: frontend
+      app: frontend
+        #app.selector: frontend
   endpoints:
   - port: frontend
     path: /metrics
@@ -24,7 +25,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: backend-servicemonitor
+  name: backend
   # Change this to the namespace the Prometheus instance is running in
   # namespace: default
   namespace: monitoring
@@ -34,7 +35,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.selector: backend
+      app: backend
+        #app.selector: backend
   endpoints:
   - port: backend
     path: /metrics
@@ -46,7 +48,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: trial-servicemonitor
+  name: trial
   # Change this to the namespace the Prometheus instance is running in
   namespace: monitoring
   labels:
@@ -55,7 +57,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.selector: trial
+      app: trial
+        #app.selector: trial
   endpoints:
   - port: trial
     path: /metrics
