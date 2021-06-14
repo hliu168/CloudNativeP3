@@ -55,17 +55,19 @@
 
 TROUBLE TICKET
 
-Name:
+Name: Defect in Trial workflow
 
-Date:
+Date: 2021-06-14
 
-Subject:
+Subject: Defect in Trial workflow in both frontend and backend.
 
-Affected Area:
+Affected Area: Trial workflow of the application
 
-Severity:
+Severity: High
 
-Description:
+Description: 
+- In frontend code, trial button id should be secondbutton
+- When clicking on secondbutton, it results in http status 500.
 
 
 ## Creating SLIs and SLOs
